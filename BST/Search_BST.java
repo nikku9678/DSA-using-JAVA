@@ -1,4 +1,4 @@
-public class BST {
+public class Search_BST {
     static class Node{
         int data;
         Node left; 
@@ -27,6 +27,19 @@ public class BST {
         return root;
     }
 
+    public static boolean search(Node root,int key){
+        if(root==null) return false;
+        if(root.data>key){
+            return search(root.left,key);
+        }else if(root.data==key){
+            return true;
+        }
+        else{
+            return search(root.right,key);
+        }
+
+    }
+
     public static void inorder(Node root){
         if(root==null){
             return;
@@ -44,6 +57,7 @@ public class BST {
         }
 
         inorder(root);
-
+        System.out.println(search(root,89));
     }
 }
+
